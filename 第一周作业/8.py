@@ -3,6 +3,7 @@ def has_repeated_chars(s):
         if s[i] == s[i+1]:
             return True
     return False
+
 input_string = input()
 if has_repeated_chars(input_string):
     print("字符串包含由两个或两个以上连续出现的相同字符组成的字符串。")
