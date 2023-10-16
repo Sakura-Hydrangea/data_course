@@ -1,6 +1,9 @@
-def cubicroot(a):
-    return a ** (1/3)
+def cube_root(a):
+    c = a
+    g = c / 2
+    while (abs(g ** 3 - c) > 1e-10):
+        g = g - (g ** 3-c)/(3*(g**2))
+    print(g)
 
-a=int(input())  # 要计算的三次方根
-result = cubicroot(a)
-print(f"The cube root of {a} is {result}")
+a = eval(input())
+cube_root(a)
