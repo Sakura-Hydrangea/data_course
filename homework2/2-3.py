@@ -16,6 +16,7 @@ def dfs(state, path, visited):#0表示目标岸，1表示原岸
             dfs(new_state, path + [new_state], visited)
             visited.remove(new_state)
 
+
 # 初始状态：(1, 1, 1, 1) 表示人、狼、羊、菜都在起始岸
 initial_state = (1, 1, 1, 1)
 # 移动方式
