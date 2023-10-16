@@ -6,4 +6,5 @@ def square_root():
         g += 0.0000001
     print(g)
 
+
 square_root()
