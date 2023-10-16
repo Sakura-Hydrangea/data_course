@@ -1,3 +1,4 @@
+
 w = int(input("请输入w："))
 x = int(input("请输入x："))
 y = int(input("请输入y："))
