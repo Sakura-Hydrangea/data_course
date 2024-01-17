@@ -1,0 +1,59 @@
+3.
+CREATE TABLE user (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(50) NOT NULL,
+    sex VARCHAR(10) NOT NULL,
+    age INT,
+    phone VARCHAR(20)
+);
+
+INSERT INTO user (name, sex, age, phone) VALUES
+    ('Alice', 'Female', 25, '123-456-7890'),
+    ('Bob', 'Male', 30, '987-654-3210'),
+    ('Charlie', 'Non-binary', 22, '555-123-4567');
+
+
+4.
+SELECT * FROM user WHERE age BETWEEN 20 AND 30;
+
+
+5.
+DELETE FROM user WHERE name LIKE '%张%';
+
+
+6.
+SELECT AVG(age) AS AvgAge
+FROM user;
+
+7.
+SELECT * FROM user WHERE age BETWEEN 20 AND 30 AND name LIKE '%张%'
+ORDER BY age DESC;
+
+8.
+-- 创建 team 表和score表
+CREATE TABLE team (
+id INT AUTO_INCREMENT PRIMARY KEY,
+teamName VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE score (
+id INT AUTO_INCREMENT PRIMARY KEY,
+teamid INT,
+userid INT,
+score INT,
+FOREIGN KEY (teamid) REFERENCES team(id),
+FOREIGN KEY (userid) REFERENCES user(id)
+);
+
+9.
+SELECT u.* FROM user u
+JOIN score s ON u.id = s.userid
+JOIN team t ON s.teamid = t.id
+WHERE t.teamName = 'ECNU' AND u.age < 20;
+
+10.
+SELECT team.teamName, COALESCE(SUM(score.score), 0) AS totalScore
+FROM team
+LEFT JOIN score ON team.id = score.teamid
+WHERE team.teamName = 'ECNU'
+GROUP BY team.teamName;
