@@ -3,7 +3,7 @@ from github import Github
 import json
 # 输入你的GitHub用户名和访问令牌
 username = "Sakura-Hydrangea"
-token = "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"
+token = ""
 
 # 创建GitHub对象
 g = Github(username, token)
